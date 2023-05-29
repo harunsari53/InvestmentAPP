@@ -24,6 +24,7 @@ export default function CoinDetail(props: any) {
     const data: ICoinDetail[] = getItem('favorites');
     let isThere: any = data?.find(x => x.code == code);
     setIsThere(isThere != undefined ? true : false);
+    
   };
 
   const getDetail = () => {
