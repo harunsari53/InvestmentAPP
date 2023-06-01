@@ -1,23 +1,18 @@
-import {
-  ActivityIndicator,
-  FlatList,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {FlatList, Pressable, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {getItem, setItem} from '../../../mmkv';
-import {ICoinDetail} from '../../../constants/types';
+import {IAllDetails} from '../../../constants/types';
 import {FavItem} from './components';
 import globalStyle from '../../../constants/style';
 import {useIsFocused} from '@react-navigation/native';
 import styles from './style';
 import Icon from '../../../components/Icon';
+
 let storageName = 'favorites';
+
 export default function Home() {
-  const [favCoins, setFavCoins] = useState<ICoinDetail[]>([]);
-  const [selectedItems, setSelectedItems] = useState<ICoinDetail[]>([]);
+  const [favCoins, setFavCoins] = useState<IAllDetails[]>([]);
+  const [selectedItems, setSelectedItems] = useState<IAllDetails[]>([]);
   const [refresh, setRefresh] = useState<boolean>(true);
 
   const isFocused = useIsFocused();
@@ -27,14 +22,14 @@ export default function Home() {
   }, [isFocused]);
 
   const getData = () => {
-    let arr: ICoinDetail[] = getItem(storageName);
+    let arr: IAllDetails[] = getItem(storageName);
     setFavCoins(arr);
     setRefresh(false);
   };
 
   const deleteFavorites = () => {
     setRefresh(true);
-    let arr: ICoinDetail[] = getItem(storageName);
+    let arr: IAllDetails[] = getItem(storageName);
     selectedItems.map(s => {
       arr = arr.filter(x => x?.code != s?.code);
     });
@@ -43,7 +38,7 @@ export default function Home() {
     setSelectedItems([]);
   };
 
-  const onPressCheck = (item: ICoinDetail, check: boolean) => {
+  const onPressCheck = (item: IAllDetails, check: boolean) => {
     setSelectedItems(SI => {
       if (check) {
         return [...SI, item];
@@ -53,7 +48,7 @@ export default function Home() {
     });
   };
 
-  const renderItem = ({item}: {item: ICoinDetail}) => {
+  const renderItem = ({item}: {item: IAllDetails}) => {
     let check = false,
       isThere = selectedItems.find(x => x.code == item.code);
     check = isThere != undefined ? true : false;

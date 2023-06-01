@@ -50,11 +50,11 @@ export default function CurrencyDetail(props: any) {
       const data: ICurrencyDetail[] = getItem(storageName);
       if (typeof data === 'undefined') {
         let arr: ICurrencyDetail[] = [];
-        arr.push(currency);
+        arr.push({...currency, routeName: 'CurrencyDetail'});
         setItem(storageName, arr);
       } else {
         let arr: ICurrencyDetail[] = data.filter(x => x.code !== currency.code);
-        arr.push(currency);
+        arr.push({...currency, routeName: 'CurrencyDetail'});
         setItem(storageName, arr);
       }
       setIsThere(true);

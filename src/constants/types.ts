@@ -1,77 +1,43 @@
-export interface ICoin {
-    code: string;
-    ShortName: string;
-    FullName: string;
-  }
-  
-  export interface ICoinDetail {
-    code: string;
-    ShortName: string;
-    FullName: string;
-    Ccode: string;
-    Mcode: string;
-    buying: number;
-    selling: number;
-    latest: number;
-    changeRate: number;
-    dayMin: number;
-    dayMax: number;
-    volume: number;
-    lastupdate: string;
-  }
-  export interface IEmtia {
-    code: string;
-    ShortName: string;
-    FullName: string;
-  }
-  export interface IEmtiaDetail {
-    code: string;
-    ShortName: string;
-    FullName: string;
-    buying: number;
-    selling: number;
-    latest: number;
-    changeRate: number;
-    dayMin: number;
-    dayMax: number;
-    lastupdate: string;
-  }
-  export interface ICurrency {
-    code: string;
-    ShortName: string;
-    FullName: string;
-  }
+export interface IItem {
+  code: string;
+  ShortName: string;
+  FullName: string;
+}
 
-  export interface ICurrencyDetail {
-    code: string;
-    ShortName: string;
-    FullName: string;
-    buying: number;
-    selling: number;
-    latest: number;
-    changeRate: number;
-    dayMin: number;
-    dayMax: number;
-    lastupdate: string;
-  }
-  export interface IExhange {
-    code: string;
-    ShortName: string;
-    FullName: string;
-    description: string;
-  }
-  export interface IExchangeDetail {
-    code: string;
-    ShortName: string;
-    FullName: string;
-    descriptiom: string;
-    MoneyCode1: string;
-    MoneyCode2: string;
-    buying: number;
-    selling: number;
-    latest: number;
-    changeRate: number;
-    dayMin: number;
-    dayMax: number;
-    lastupdate: string;
-  }
+export type IExhange = IItem & {
+  description: string;
+};
+
+interface IDetail {
+  code: string;
+  ShortName: string;
+  FullName: string;
+  buying: number;
+  selling: number;
+  latest: number;
+  changeRate: number;
+  dayMin: number;
+  dayMax: number;
+  lastupdate: string;
+  routeName: string;
+}
+
+export type ICoinDetail = IDetail & {
+  Ccode: string;
+  Mcode: string;
+  volume: number;
+};
+
+export type IExchangeDetail = IDetail & {
+  descriptiom: string;
+  MoneyCode1: string;
+  MoneyCode2: string;
+};
+
+export type IEmtiaDetail = IDetail;
+export type ICurrencyDetail = IDetail;
+
+export type IAllDetails = ICoinDetail &
+  IEmtiaDetail &
+  ICurrencyDetail &
+  IExchangeDetail;

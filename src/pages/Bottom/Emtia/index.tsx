@@ -2,12 +2,12 @@ import {View, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import globalStyle from '../../../constants/style';
 import { emtiaService} from '../../../services';
-import {IEmtia} from '../../../constants/types';
+import {IItem} from '../../../constants/types';
 import {EmtiaItem} from './components';
 
 export default function Emtia() {
   const [loading, setLoading] = useState<boolean>(false);
-  const [emtiaList, setEmtiaList] = useState<IEmtia[]>([]);
+  const [emtiaList, setEmtiaList] = useState<IItem[]>([]);
   useEffect(() => {
     getData();
   }, []);
@@ -28,7 +28,7 @@ export default function Emtia() {
       });
   };
 
-  const renderEmtia = ({item}: {item: IEmtia}) => <EmtiaItem emtia={item} />;
+  const renderEmtia = ({item}: {item: IItem}) => <EmtiaItem emtia={item} />;
 
   return (
     <View style={globalStyle.globalContainer}>

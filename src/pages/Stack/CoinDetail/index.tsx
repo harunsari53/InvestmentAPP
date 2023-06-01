@@ -24,7 +24,6 @@ export default function CoinDetail(props: any) {
     const data: ICoinDetail[] = getItem('favorites');
     let isThere: any = data?.find(x => x.code == code);
     setIsThere(isThere != undefined ? true : false);
-    
   };
 
   const getDetail = () => {
@@ -51,11 +50,11 @@ export default function CoinDetail(props: any) {
       const data: ICoinDetail[] = getItem(storageName);
       if (typeof data === 'undefined') {
         let arr: ICoinDetail[] = [];
-        arr.push(coin);
+        arr.push({...coin, routeName: 'CoinDetail'});
         setItem(storageName, arr);
       } else {
         let arr: ICoinDetail[] = data.filter(x => x.code !== coin.code);
-        arr.push(coin);
+        arr.push({...coin, routeName: 'CoinDetail'});
         setItem(storageName, arr);
       }
       setIsThere(true);

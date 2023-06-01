@@ -1,11 +1,11 @@
 import {View, Text, Pressable} from 'react-native';
 import React from 'react';
-import {IEmtia} from '../../../../../constants/types';
+import {IItem} from '../../../../../constants/types';
 import styles from './style';
 import globalStyle from '../../../../../constants/style';
 import {useNavigation} from '@react-navigation/native';
 
-export default function EmtiaItem({emtia}: {emtia: IEmtia}) {
+export default function EmtiaItem({emtia}: {emtia: IItem}) {
   const navigation = useNavigation<any>();
 
   const onPressEmtia = () => {

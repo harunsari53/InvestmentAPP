@@ -1,11 +1,11 @@
 import {View, Text, Pressable} from 'react-native';
 import React from 'react';
-import {ICurrency} from '../../../../../constants/types';
+import {IItem} from '../../../../../constants/types';
 import globalStyle from '../../../../../constants/style';
 import styles from './style';
 import {useNavigation} from '@react-navigation/native';
 
-export default function CurrencyItem({currency}: {currency: ICurrency}) {
+export default function CurrencyItem({currency}: {currency: IItem}) {
   const navigation = useNavigation<any>();
 
   const onPressCurrency = () => {

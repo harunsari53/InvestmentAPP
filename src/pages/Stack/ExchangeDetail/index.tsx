@@ -28,7 +28,7 @@ export default function ExchangeDetail(props: any) {
 
   const getDetail = () => {
     setLoading(true);
-      exchangeService
+    exchangeService
       .getExchangeDetails({code}) //code ne işe yarıyor?
       .then(res => {
         if (res?.data?.status === 'success') {
@@ -50,11 +50,11 @@ export default function ExchangeDetail(props: any) {
       const data: IExchangeDetail[] = getItem(storageName);
       if (typeof data === 'undefined') {
         let arr: IExchangeDetail[] = [];
-        arr.push(exchange);
+        arr.push({...exchange, routeName: 'ExchangeDetail'});
         setItem(storageName, arr);
       } else {
         let arr: IExchangeDetail[] = data.filter(x => x.code !== exchange.code);
-        arr.push(exchange);
+        arr.push({...exchange, routeName: 'ExchangeDetail'});
         setItem(storageName, arr);
       }
       setIsThere(true);

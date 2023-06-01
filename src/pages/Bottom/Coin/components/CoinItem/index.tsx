@@ -1,11 +1,11 @@
 import {View, Text, Pressable} from 'react-native';
 import React from 'react';
-import {ICoin} from '../../../../../constants/types';
+import {IItem} from '../../../../../constants/types';
 import styles from './style';
 import globalStyle from '../../../../../constants/style';
 import {useNavigation} from '@react-navigation/native';
 
-export default function CoinItem({coin}: {coin: ICoin}) {
+export default function CoinItem({coin}: {coin: IItem}) {
 
   const navigation = useNavigation<any>();
   

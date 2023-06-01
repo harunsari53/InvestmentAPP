@@ -2,12 +2,12 @@ import {View, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import globalStyle from '../../../constants/style';
 import {currencyService} from '../../../services';
-import {ICurrency} from '../../../constants/types';
+import {IItem} from '../../../constants/types';
 import {CurrencyItem} from './components';
 
 export default function Currency() {
   const [loading, setLoading] = useState<boolean>(false);
-  const [currencyList, setCurrencyList] = useState<ICurrency[]>([]);
+  const [currencyList, setCurrencyList] = useState<IItem[]>([]);
   useEffect(() => {
     getData();
   }, []);
@@ -28,7 +28,7 @@ export default function Currency() {
       });
   };
 
-  const renderCurrency = ({item}: {item: ICurrency}) => (
+  const renderCurrency = ({item}: {item: IItem}) => (
     <CurrencyItem currency={item} />
   );
 

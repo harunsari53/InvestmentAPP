@@ -2,12 +2,12 @@ import {View, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import globalStyle from '../../../constants/style';
 import {coinService} from '../../../services';
-import {ICoin} from '../../../constants/types';
+import {IItem} from '../../../constants/types';
 import {CoinItem} from './components';
 
 export default function Coin() {
   const [loading, setLoading] = useState<boolean>(false);
-  const [coinList, setCoinList] = useState<ICoin[]>([]);
+  const [coinList, setCoinList] = useState<IItem[]>([]);
   
   useEffect(() => {
     getData();
@@ -28,7 +28,7 @@ export default function Coin() {
       });
   };
 
-  const renderCoin = ({item}: {item: ICoin}) => <CoinItem coin={item} />;
+  const renderCoin = ({item}: {item: IItem}) => <CoinItem coin={item} />;
 
   return (
     <View style={globalStyle.globalContainer}>

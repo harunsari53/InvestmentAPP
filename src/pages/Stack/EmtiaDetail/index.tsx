@@ -50,11 +50,11 @@ export default function EmtiaDetail(props: any) {
       const data: IEmtiaDetail[] = getItem(storageName);
       if (typeof data === 'undefined') {
         let arr: IEmtiaDetail[] = [];
-        arr.push(emtia);
+        arr.push({...emtia, routeName: 'EmtiaDetail'});
         setItem(storageName, arr);
       } else {
         let arr: IEmtiaDetail[] = data.filter(x => x.code !== emtia.code);
-        arr.push(emtia);
+        arr.push({...emtia, routeName: 'EmtiaDetail'});
         setItem(storageName, arr);
       }
       setIsThere(true);

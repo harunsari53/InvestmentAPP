@@ -1,6 +1,6 @@
 import {View, Text, Pressable} from 'react-native';
 import React from 'react';
-import {ICoin, ICoinDetail} from '../../../../../constants/types';
+import {IAllDetails} from '../../../../../constants/types';
 import styles from './style';
 import globalStyle from '../../../../../constants/style';
 import {useNavigation} from '@react-navigation/native';
@@ -11,14 +11,14 @@ const FavItem = ({
   check,
   onPressCheck,
 }: {
-  item: ICoinDetail;
+  item: IAllDetails;
   check: boolean;
-  onPressCheck: (item: ICoinDetail, check: boolean) => void;
+  onPressCheck: (item: IAllDetails, check: boolean) => void;
 }) => {
   const navigation = useNavigation<any>();
 
   const onPressCoin = () => {
-    navigation.navigate('CoinDetail', {code: item.code});
+    navigation.navigate(item?.routeName, {code: item?.code});
   };
 
   const checkChanged = (check: boolean) => {
@@ -32,10 +32,10 @@ const FavItem = ({
         onPress={onPressCoin}
         style={[styles.container, globalStyle.midShadow]}>
         <View>
-          <Text style={styles.shortName}>{item.ShortName}</Text>
-          <Text style={styles.fullName}>{item.FullName}</Text>
+          <Text style={styles.shortName}>{item?.ShortName}</Text>
+          <Text style={styles.fullName}>{item?.FullName}</Text>
         </View>
-        <Text style={styles.code}>{item.code}</Text>
+        <Text style={styles.code}>{item?.code}</Text>
       </Pressable>
     </View>
   );
