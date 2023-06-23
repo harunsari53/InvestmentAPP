@@ -6,7 +6,7 @@ import {FavItem} from './components';
 import globalStyle from '../../../constants/style';
 import {useIsFocused} from '@react-navigation/native';
 import styles from './style';
-import Icon from '../../../components/Icon';
+import {Icon} from 'general-components/src';
 
 let storageName = 'favorites';
 

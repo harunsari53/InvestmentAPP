@@ -1,10 +1,12 @@
-import {View, TouchableOpacity} from 'react-native';
+import {View, LogBox, Pressable} from 'react-native';
 import React from 'react';
 import globalStyle from '../../constants/style';
 import styles from './style';
 import {midRouteName} from '../../constants/variables';
-import Icon from '../Icon';
+import {Icon} from 'general-components/src';
 import {colors} from '../../constants/colors';
+
+LogBox.ignoreAllLogs()
 
 export default function CustomTabBar({state, descriptors, navigation}: any) {
   return (
@@ -26,7 +28,7 @@ export default function CustomTabBar({state, descriptors, navigation}: any) {
           }
         };
         return (
-          <TouchableOpacity
+          <Pressable
             onPress={onPress}
             style={
               route.name == midRouteName ? styles.midTabStyle : styles.tabStyle
@@ -34,16 +36,14 @@ export default function CustomTabBar({state, descriptors, navigation}: any) {
             key={index}>
             <Icon
               name={iconName}
-              size={route.name == midRouteName ? 30 : 25}
+              size={route.name == midRouteName ? 40 : 28}
               color={
-                route.name == midRouteName
-                  ? colors.white
-                  : isFocused
-                  ? colors.myGreen
-                  : colors.gold
+               isFocused
+                  ? colors.gold
+                  : colors.grey
               }
             />
-          </TouchableOpacity>
+          </Pressable>
         );
       })}
     </View>

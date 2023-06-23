@@ -11,28 +11,28 @@ export default function InvestoNavigator() {
       <Tab.Screen
         name="Coin"
         component={Coin}
-        initialParams={{iconName: 'bitcoin : FontAwe'}}
+        initialParams={{iconName: 'bitcoin : font'}}
       />
       <Tab.Screen
         name="Currency"
         component={Currency}
-        initialParams={{iconName: 'dollar : FontAwe'}}
+        initialParams={{iconName: 'dollar : font'}}
       />
       <Tab.Screen
         name="Favorites"
         component={Home}
         options={{title: 'Favorites'}}
-        initialParams={{iconName: 'ios-person-sharp : Ionicons'}}
+        initialParams={{iconName: 'favorite : material'}}
       />
       <Tab.Screen
         name="Emtia"
         component={Emtia}
-        initialParams={{iconName: 'gold : matcom'}}
+        initialParams={{iconName: 'gold : materialcomm'}}
       />
       <Tab.Screen
         name="Exchange"
         component={Exchange}
-        initialParams={{iconName: 'exchange : FontAwe'}}
+        initialParams={{iconName: 'exchange : font'}}
       />
     </Tab.Navigator>
   );
